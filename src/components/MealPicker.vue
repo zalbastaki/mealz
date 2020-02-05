@@ -32,6 +32,7 @@
     .reset-btn {
         color: #fff;
         background: $dark-grey;
+        border: 0;
         border-radius: 5px;
         padding: 5px 15px;
         font-size: 14px;

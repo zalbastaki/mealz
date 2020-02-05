@@ -191,6 +191,9 @@
         transform: rotate(0deg);
         transition: transform 0.5s linear;
         font-size: 14px;
+        background: none;
+        border: 0;
+        outline: 0;
     }
 
     .btn {

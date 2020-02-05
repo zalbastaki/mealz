@@ -108,6 +108,9 @@
 
             button {
                 color: $dark-grey;
+                background: none;
+                border: 0;
+                outline: 0;
             }
         }
 
@@ -138,6 +141,9 @@
 
             button {
                 color: #fff;
+                background: none;
+                border: 0;
+                outline: 0;
             }
         }
     }
