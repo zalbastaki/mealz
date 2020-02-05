@@ -1,6 +1,6 @@
-# Vue Starter
+# Mealz
 
-This is a vue starter template. Find branches with google fonts plugin integrated, and Netlify CMS configured.
+This is a random meal picker.
 
 ## Project setup
 ```

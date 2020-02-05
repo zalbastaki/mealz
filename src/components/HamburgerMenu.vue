@@ -1,0 +1,178 @@
+<template>
+    <nav role="navigation">
+        <div id="menu-toggle">
+            <input id="menu-input" type="checkbox" />
+
+            <span />
+            <span />
+            <span />
+
+            <ul id="menu">
+                <a href="/">
+                    <li @click="closeMenu">
+                        Meal Picker
+                    </li>
+                </a>
+                <hr />
+                <a
+                    v-for="(menuItem, index) in menu"
+                    :key="index"
+                    :href="menuItem.route"
+                >
+                    <li @click="closeMenu">
+                        {{ menuItem.name }}
+                    </li>
+                </a>
+                <hr />
+                <a href="/settings">
+                    <li @click="closeMenu">
+                        Settings
+                    </li>
+                </a>
+            </ul>
+        </div>
+    </nav>
+</template>
+
+<script>
+    export default {
+        name: 'hamburger-menu',
+
+        data() {
+            return {
+                menu: [
+                    { route: '/salads', name: 'Salads' },
+                    { route: '/soups', name: 'Soups' },
+                    { route: '/starters', name: 'Starters' },
+                    { route: '/mains', name: 'Mains' },
+                ],
+            };
+        },
+
+        methods: {
+            closeMenu() {
+                document.getElementById('menu-input').checked = false;
+            },
+        },
+    };
+</script>
+
+<style lang="scss" scoped>
+    #menu-toggle {
+        display: block;
+        position: fixed;
+        top: 50px;
+        left: 50px;
+        z-index: 1;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+    #menu-toggle input {
+        display: block;
+        width: 40px;
+        height: 32px;
+        position: absolute;
+        top: -7px;
+        left: -5px;
+        cursor: pointer;
+        opacity: 0; /* hide this */
+        z-index: 2; /* and place it over the hamburger */
+        -webkit-touch-callout: none;
+    }
+
+    /*
+    * Just a quick hamburger
+    */
+    #menu-toggle span {
+        display: block;
+        width: 33px;
+        height: 4px;
+        margin-bottom: 5px;
+        position: relative;
+        background: $dark-grey;
+        border-radius: 3px;
+        z-index: 1;
+        transform-origin: 4px 0px;
+        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+            background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+    }
+
+    #menu-toggle span:first-child {
+        transform-origin: 0% 0%;
+    }
+
+    #menu-toggle span:nth-last-child(2) {
+        transform-origin: 0% 100%;
+    }
+
+    /*
+    * Transform all the slices of hamburger
+    * into a crossmark.
+    */
+    #menu-toggle input:checked ~ span {
+        opacity: 1;
+        transform: rotate(45deg) translate(-2px, -1px);
+        background: #cdcdcd;
+    }
+
+    /*
+    * But let's hide the middle one.
+    */
+    #menu-toggle input:checked ~ span:nth-last-child(3) {
+        opacity: 0;
+        transform: rotate(0deg) scale(0.2, 0.2);
+    }
+
+    /*
+    * Ohyeah and the last one should go the other direction
+    */
+    #menu-toggle input:checked ~ span:nth-last-child(2) {
+        transform: rotate(-45deg) translate(0, -1px);
+    }
+
+    /*
+    * Make this absolute positioned
+    * at the top left of the screen
+    */
+    #menu {
+        position: absolute;
+        width: 250px;
+        height: 100vh;
+        margin: -100px 0 0 -50px;
+        padding: 50px;
+        padding-top: 125px;
+        background: #232323;
+        list-style-type: none;
+        -webkit-font-smoothing: antialiased;
+        /* to stop flickering of text in safari */
+        transform-origin: 0% 0%;
+        transform: translate(-100%, 0);
+        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    }
+
+    #menu li {
+        padding: 10px 0;
+        font-size: 22px;
+    }
+
+    #menu hr {
+        background: #cdcdcd;
+    }
+
+    #menu a {
+        color: #cdcdcd;
+        text-decoration: none;
+        &:hover {
+            color: darken(#cdcdcd, 20%);
+            text-decoration: none;
+        }
+    }
+
+    /*
+    * And let's slide it in from the left
+    */
+    #menu-toggle input:checked ~ ul {
+        transform: none;
+    }
+</style>
