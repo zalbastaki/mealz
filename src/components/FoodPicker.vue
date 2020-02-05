@@ -23,7 +23,9 @@
         </template>
 
         <div v-else class="no-options">
-            <a class="btn" :href="`/${foodType}`">Add Options</a>
+            <router-link class="btn" :to="`/${foodType}`">
+                Add Options
+            </router-link>
         </div>
     </div>
 </template>

@@ -8,27 +8,27 @@
             <span />
 
             <ul id="menu">
-                <a href="/">
+                <router-link to="/">
                     <li @click="closeMenu">
                         Meal Picker
                     </li>
-                </a>
+                </router-link>
                 <hr />
-                <a
+                <router-link
                     v-for="(menuItem, index) in menu"
                     :key="index"
-                    :href="menuItem.route"
+                    :to="menuItem.route"
                 >
                     <li @click="closeMenu">
                         {{ menuItem.name }}
                     </li>
-                </a>
+                </router-link>
                 <hr />
-                <a href="/settings">
+                <router-link to="/settings">
                     <li @click="closeMenu">
                         Settings
                     </li>
-                </a>
+                </router-link>
             </ul>
         </div>
     </nav>

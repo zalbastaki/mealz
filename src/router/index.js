@@ -7,6 +7,7 @@ import Soups from '../views/soups.vue';
 import Starters from '../views/starters.vue';
 import Mains from '../views/mains.vue';
 import Settings from '../views/settings.vue';
+import PageNotFound from '../views/page-not-found.vue';
 
 Vue.use(VueRouter);
 
@@ -40,6 +41,11 @@ const routes = [
         path: '/settings',
         name: 'settings',
         component: Settings,
+    },
+    {
+        path: '/*',
+        name: 'page-not-found',
+        component: PageNotFound,
     },
 ];
 
