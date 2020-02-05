@@ -107,6 +107,14 @@
                 let count = 0;
                 let index = this.randomInt(this.food.length);
 
+                // recalculate if the random index = the current one
+                // and there's more than 1 option
+                while (this.index === index && this.food.length > 1) {
+                    index = this.randomInt(this.food.length);
+                }
+
+                // recalculate if the food has been recently chosen
+                // and we haven't gone through all the options yet
                 while (
                     this.recentlyUsed(this.food[index]) &&
                     count !== this.food.length
