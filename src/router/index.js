@@ -1,6 +1,12 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+
 import Home from '../views/index.vue';
+import Salads from '../views/salads.vue';
+import Soups from '../views/soups.vue';
+import Starters from '../views/starters.vue';
+import Mains from '../views/mains.vue';
+import Settings from '../views/settings.vue';
 
 Vue.use(VueRouter);
 
@@ -11,39 +17,29 @@ const routes = [
         component: Home,
     },
     {
-        path: '/mains',
-        name: 'mains',
-        component: function() {
-            return import('../views/mains.vue');
-        },
-    },
-    {
         path: '/salads',
         name: 'salads',
-        component: function() {
-            return import('../views/salads.vue');
-        },
-    },
-    {
-        path: '/settings',
-        name: 'settings',
-        component: function() {
-            return import('../views/settings.vue');
-        },
+        component: Salads,
     },
     {
         path: '/soups',
         name: 'soups',
-        component: function() {
-            return import('../views/soups.vue');
-        },
+        component: Soups,
     },
     {
         path: '/starters',
         name: 'starters',
-        component: function() {
-            return import('../views/starters.vue');
-        },
+        component: Starters,
+    },
+    {
+        path: '/mains',
+        name: 'mains',
+        component: Mains,
+    },
+    {
+        path: '/settings',
+        name: 'settings',
+        component: Settings,
     },
 ];
 
