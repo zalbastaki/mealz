@@ -1,35 +1,23 @@
 # Mealz
 
-This is a random meal picker.[See it here.](https://mealz.netlify.app/)
+This is a random meal picker.
 
-## Development
-
-First install dependencies:
-
-```sh
-yarn
+## Project setup
+```
+yarn install
 ```
 
-To run in hot module reloading mode:
-
-```sh
+### Compiles and hot-reloads for development
+```
 yarn serve
 ```
 
-To lint all files:
-
-```sh
-yarn lint
+### Compiles and minifies for production
 ```
-
-## Production
-
-To create a production build:
-
-```sh
 yarn build
 ```
 
-## Running
-
-Open `dist/index.html` in your browser.
+### Lints and fixes files
+```
+yarn lint
+```
